@@ -5,18 +5,25 @@ Created on Tue Jun  1 14:49:06 2021
 @author: shubh
 """
 
+
+
 from flask import Flask,render_template,request
 import ss2
-import requests
+from flask_restful import Api,Resource
 app = Flask(__name__)
 
-@app.route('/',methods=['GET','POST'])
-def hello():
-    res=[]
-    if request.method=='POST':
-        inp=request.form.get("input_user")
+api=Api(app)
+
+#@app.route('/',methods=['GET','POST'])
+
+class CB(Resource):
+    def post(self,inp):
+        res=[]
+        #inp=request.form.get("input_user")
         res=ss2.chatbot(inp)
-    return render_template('w.html',results=res)
+        return {"data":res}
+
+api.add_resource(CB, "/<string:inp>")
 
 
 if __name__ == '__main__':
