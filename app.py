@@ -11,7 +11,8 @@ from flask import Flask,render_template,request
 import ss2
 from flask_restful import Api,Resource
 app = Flask(__name__)
-
+from flask_cors import CORS
+CORS(app)
 api=Api(app)
 
 #@app.route('/',methods=['GET','POST'])
