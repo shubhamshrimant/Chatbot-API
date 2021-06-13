@@ -55,8 +55,8 @@ def get_response(inp):
     for word in words_tokens:
         temp=[]
         for word1 in word:
-            #if word1 not in sw:
-            temp.append(lemmatizer.lemmatize(word1))
+            if word1 not in sw:
+                temp.append(lemmatizer.lemmatize(word1))
         X_stem.append(temp)
         
     
