@@ -7,7 +7,7 @@ Created on Tue May 25 21:48:08 2021
 import pandas as pd
 import numpy as np
 import random
-dataset=pd.read_csv('covid_19faq1.csv')
+dataset=pd.read_csv('q.csv')
 
 
 X=dataset.iloc[:,0]
@@ -87,7 +87,7 @@ def get_response(inp):
     xyz= max(final[0])
         
         #ind=final(final[0]==xyz).index.values
-    if xyz>0:
+    if xyz>0.25:
         ind=pd.Index(final[0])
         #ind=ind.astype(int)
         index=ind.get_loc(xyz)
@@ -106,9 +106,9 @@ def get_response(inp):
     
     
 def chatbot(inp):
-    greetings = ['hey', 'hello', 'hi', "it's great to see you", 'nice to see you', 'good to see you']
+    greetings = ['hey', 'hello', 'hi', "it's great to see you", 'nice to see you', 'good to see you','what\'s up','what is your name']
     bye = ['Bye', 'Bye-Bye', 'Goodbye', 'Have a good day','Stop']
-    thank_you = ['thanks', 'thank you', 'thanks a bunch', 'thanks a lot.', 'thank you very much', 'thanks so much', 'thank you so much']
+    thank_you = ['thanks', 'thank you', 'thanks a bunch', 'thanks a lot.', 'thank you very much', 'thanks so much', 'thank you so much','okay']
     thank_response = ['You\'re welcome.' , 'No problem.', 'No worries.', ' My pleasure.' , 'It was the least I could do.', 'Glad to help.']
     # Example of how bot match the keyword from Greetings and reply accordingly
     
