@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 import random
 dataset=pd.read_csv('q.csv')
+import re
 
 
 X=dataset.iloc[:,0]
@@ -17,6 +18,7 @@ X_o=[]
 for i in X:
     i=str(i).lower()
     i=str(i.replace('?',''))
+    i = re.sub(r"\d+", "", i)
         
     X_o.append(i)
     
@@ -55,8 +57,8 @@ def get_response(inp):
     for word in words_tokens:
         temp=[]
         for word1 in word:
-            if word1 not in sw:
-                temp.append(lemmatizer.lemmatize(word1))
+            #if word1 not in sw:
+            temp.append(lemmatizer.lemmatize(word1))
         X_stem.append(temp)
         
     
