@@ -7,7 +7,7 @@ Created on Tue May 25 21:48:08 2021
 import pandas as pd
 import numpy as np
 import random
-dataset=pd.read_csv('q.csv')
+dataset=pd.read_csv('covid_19faq1.csv')
 import re
 
 
