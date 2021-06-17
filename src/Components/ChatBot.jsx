@@ -1,6 +1,6 @@
 import "./ChatBot.css";
-import React, { useEffect, useState } from "react";
-import logo from "../Helper/loading.gif";
+import React, { useState } from "react";
+
 import axios from "axios";
 
 const ChatBot = () => {
@@ -16,22 +16,6 @@ const ChatBot = () => {
 
     if (event.key === "Enter") {
       setChat([...chat, message.text]);
-
-      // const nnn = async () => {
-      //   try {
-      //     const data = await axios
-      //       .post("https://chatbot-flask-api.herokuapp.com/" + currentMessage)
-      //       .then((data) => {
-      //         console.log(data.data.data);
-      //         setResponse([...response, data.data.data]);
-      //       });
-      //
-      //   } catch (e) {
-      //     console.log(e);
-      //   }
-      // };
-      // nnn();
-
       axios
         .post("https://chatbot-flask-api.herokuapp.com/" + message.text)
         .then((data) => {
@@ -72,12 +56,6 @@ const ChatBot = () => {
 
                 <div className="their-chat">
                   {response[index] === undefined ? (
-                    // <img
-                    //   // src="https://img.icons8.com/office/16/000000/dots-loading--v2.png"
-                    //   src={logo}
-                    //   alt="Loading ..."
-                    //   className="logo"
-                    // />
                     <div className="loading">
                       <label>Typing</label>
                       <span></span>
